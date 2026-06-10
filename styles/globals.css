@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-royal: #0e6b63;
+    --color-royal-dark: #0b4f46;
+    --color-gold: #d4af37;
+    --color-white: #ffffff;
+    --color-lightgray: #f5f5f5;
+    --color-ember: #d97706;
+    --color-copper: #f08a24;
+    --color-night: #120b08;
+}
+
+body {
+    @apply bg-white text-royal;
+    font-family: "Manrope", sans-serif;
+    letter-spacing: 0.01em;
+    text-rendering: optimizeLegibility;
+    background-image:
+        linear-gradient(rgba(17, 10, 8, 0.72), rgba(17, 10, 8, 0.6)),
+        radial-gradient(
+            circle at top right,
+            rgba(240, 138, 36, 0.18),
+            transparent 28%
+        ),
+        url("/images/background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.site-section-shell {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(240, 138, 36, 0.22);
+    border-radius: 28px;
+    background: linear-gradient(
+        145deg,
+        rgba(14, 9, 7, 0.94),
+        rgba(32, 18, 12, 0.88)
+    );
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.28);
+}
+
+.site-section-shell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(240, 138, 36, 0.08),
+        transparent 40%,
+        rgba(14, 107, 99, 0.05)
+    );
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 9999px;
+    pointer-events: none;
+    filter: blur(1px);
+    animation:
+        orb-float 12s ease-in-out infinite,
+        orb-pulse 6s ease-in-out infinite;
+}
+
+.orb-ember {
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255, 213, 149, 0.95),
+        rgba(240, 138, 36, 0.68) 42%,
+        rgba(217, 119, 6, 0.14) 68%,
+        transparent 76%
+    );
+}
+
+.orb-copper {
+    background: radial-gradient(
+        circle at 35% 35%,
+        rgba(255, 235, 214, 0.9),
+        rgba(185, 74, 33, 0.65) 40%,
+        rgba(92, 35, 18, 0.12) 68%,
+        transparent 76%
+    );
+}
+
+.orb-teal {
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(152, 255, 232, 0.45),
+        rgba(14, 107, 99, 0.35) 40%,
+        rgba(14, 107, 99, 0.05) 70%,
+        transparent 76%
+    );
+}
+
+@keyframes orb-float {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(18px, -24px, 0) scale(1.08);
+    }
+}
+
+@keyframes orb-pulse {
+    0%,
+    100% {
+        opacity: 0.42;
+    }
+    50% {
+        opacity: 0.78;
+    }
+}
